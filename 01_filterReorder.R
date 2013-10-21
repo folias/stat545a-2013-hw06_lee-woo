@@ -30,12 +30,11 @@ Unemp.Dur = subset(Unemp.Dur, select = -c(Flags,Frequency))
 #   - "All persons" in Sex
 #   - "Total" in Age
 #   - "Total Declared" in Duration
-# Drop the too-detailed factor levels that applies to part of the countries:
+# Drop the too-detailed factor levels that applies to some of the countries only:
 #   - "15 to 19" and "20 to 24" in Age does not apply for some countries.
 #     Those countries have the level "15 to 24" instead.
-#     Of course, the countries that have "15 to 19" and "20 to 24"
-#     still have the level "15 to 24".
-#
+#     Of course, the countries that have "15 to 19" and "20 to 24" still have the level "15 to 24".
+#     Hence, I just drop these two levels.
 Unemp.Dur = subset(Unemp.Dur, Sex != "All persons" &
                        Duration != "Total Declared" &
                        Age != "15 to 19" &
@@ -43,59 +42,74 @@ Unemp.Dur = subset(Unemp.Dur, Sex != "All persons" &
                        Age != "Total")
 Unemp.Dur = droplevels(Unemp.Dur)
 
-# The number of people cannot be analyzed without considering total labor force(Population).
-# Labor force statistics contains information on population for each age, sex, country and year levels
+# The number of unemployed people cannot be compared across countries and
+#   across different categories within a country
+#   without considering labor force of each category.
+# In other words, we should use the number of the unemployed relative to the labor force
+#   instead of just using the number of the unemployed when making a comparison.
+# Labor force statistics contains information on labor force
+#   for each age, sex, country and year levels, and that's why I need Labour Force statistics data.
 Unemp.LFS = read.csv("Unemp_LaborForce.csv")
 
-# Extract population data and clean data.
+# Extract the labor force data from the raw data and perform a quick clean of the data.
+# I drop Frequency and Flags as I did for Unemp.Dur
+# I drop Series since I subsetted the data so that Series has only one level: "Labour Force".
 Unemp.LFS = subset(Unemp.LFS, Series == "Labour Force")
 Unemp.LFS = subset(Unemp.LFS, select = -c(Series, Frequency, Flags))
 
-# rename Value in Unemp.LFS as Population in preparation for merge function.
+# rename Value in Unemp.LFS as Population in preparation for the use of merge function.
 # rename function is in plyr package
 Unemp.LFS = rename(Unemp.LFS, c("Value" = "LocalPop"))
 
 # there is no "55+" level in Unemp.LFS while it is in Unemp.Dur. 
-# Thus I need to create a new data for "55+"
-# This can be done by plyr.
+# Thus I need to create a new data for "55+".
+# Unemp.LFS has levels of "55 to 64" and "65+", so I should add the two
+#  for each combination of categorical variables.
+# This can be done by ddply in plyr.
 Unemp.LFS.55 = droplevels(subset(Unemp.LFS, Sex != "All persons" & Age %in% c("55 to 64", "65+")))
 Unemp.LFS.55 = ddply(Unemp.LFS.55, ~ Sex + Country + Time, 
                      summarize, LocalPop = sum(LocalPop), Age = factor("55+"))
-
+# attach factor level "55+" to the original labor force dataset.
 Unemp.LFS = rbind(Unemp.LFS, Unemp.LFS.55)
 
-# attach the total population data to each row
-# The information of Unemp.LFS.tot that does not fit into Unemp.LFS will be thrown away.
+# Now Unemp.LFS has data on labor force for each combination of categorical variables.
+# This is used for calculaing the "local" unemployment rate for each category,
+#   and I need the data on total labor force for each country and each year
+#   to calculate overall unemployment rate for each country and for each year.
+# The code below attaches the total population data for each country and for each year 
+#   to each row of Unemp.LFS
 Unemp.LFS.tot = droplevels(subset(Unemp.LFS, Sex == "All persons" & Age == "Total"))
 Unemp.LFS.tot = subset(Unemp.LFS.tot, select = -c(Sex,Age))
 Unemp.LFS.tot = rename(Unemp.LFS.tot, c("LocalPop" = "TotalPop"))
 Unemp.LFS = merge(Unemp.LFS, Unemp.LFS.tot, by=c("Country","Time"), all.x=TRUE)
 
-# Attach information on Population to Unemp.Dur.
-# The information of Unemp.LFS that does not fit into Unemp.Dur will be thrown away.
+# Now we attach information on the labor force to Unemployment by Duration data.
+# The information of Unemp.LFS that does not fit into Unemp.Dur will be automatically thrown away.
 Unemp.Dur = merge(Unemp.Dur, Unemp.LFS, by=c("Sex","Age","Country","Time"), all.x=TRUE)
 
 
-# There was no data on the population of the aggregate "North America" and "Oceania" level.
+# There was no data on the population of the aggregate "North America" and "Oceania" level on Unemp.LFS.
 # I drop the "North America" and "Oceania" level here.
-# Also, there are some missing data in Korea.
+# Also, there were some missing values in Korea.
 # I drop Korea here.
 Unemp.Dur = droplevels(subset(Unemp.Dur, 
                               Country != "North America" & Country != "Oceania" & Country != "Korea"))
 
-# rename "Time" to "Year"
-# rename "Value" to "Unemployed"
+# Now I rename the variables for easier interpretation.
+#   rename "Time" to "Year"
+#   rename "Value" to "Unemployed"
 # rename function is in plyr package
 Unemp.Dur = rename(Unemp.Dur, c("Time" = "Year"))
 Unemp.Dur = rename(Unemp.Dur, c("Value" = "Unemployed"))
 
-# calculate proportion of the unemployed to the population.
+# Now I calculate proportion of the unemployed to the population, 
+#   that is, "local" and overall unemployment rate.
 Unemp.Dur = within(Unemp.Dur, UnempPropLocal <- Unemployed / LocalPop)
 Unemp.Dur = within(Unemp.Dur, UnempPropTotal <- Unemployed / TotalPop)
 
 # in Country variable, there are aggregatory levels, 
 #   e.g. "Europe", "European Union 15", "G7 Countries", "OECD countries", etc.
-# I put these aggregatory levels to the end by reordering the levels.
+# I reorder the levels so that these aggregatory levels go to the end.
 Unemp.Custom.Levels = c(
     "Australia", "Austria", "Belgium", "Canada", "Czech Republic",
     "Denmark", "Estonia", "Finland", "France", "Germany",
@@ -107,8 +121,8 @@ Unemp.Custom.Levels = c(
     "European Union 21", "G7 countries", "OECD countries")
 Unemp.Dur = within(Unemp.Dur, Country <- factor(Country, levels = factor(Unemp.Custom.Levels)))
 
-# Change some country names into a conventional short names.
-# Also, change names of some aggregational levels to make the names consistent with others.
+# I change some country names into a conventional short names.
+# Also, I change names of some aggregational levels to make the names consistent with others.
 # mapvalues function is in plyr package
 Unemp.Dur = within(Unemp.Dur, Country <- mapvalues(Country, 
                                                    from=c("Russian Federation", "Slovak Republic",
@@ -123,9 +137,9 @@ Unemp.Dur = arrange(Unemp.Dur, Country, Year, Sex, Age, Duration)
 
 
 
-# make some descriptive plots.
+# Finally, I make some descriptive plots.
 
-# Unemployment rate in 2012 according to the countries
+######################## Unemployment rate in 2012 according to the countries
 
 # first, subset the data and reverse the factor level order to show the countries alphabetically in the y axis
 Unemp.Dur.exhibit = subset(Unemp.Dur, Year == "2011")
@@ -142,7 +156,7 @@ ggplot(data = Unemp.Dur.exhibit.re) +
 ggsave("barchart_2012_AggregateUnempRate.png")
 dev.off()
 
-# plot age-wise Unemployment rate over the years for OECD countries
+######################## age-wise Unemployment rate over the years for OECD countries
 
 # first, summarize the data and reverse the factor level order to show the countries alphabetically in the y axis
 Unemp.Dur.exhibit.age = ddply(Unemp.Dur.exhibit, ~ Age+Country+Year+Duration,
@@ -165,7 +179,7 @@ dev.off()
 # write the data to file
 write.csv(Unemp.Dur, "Unemp_Duration_Cleaned.csv", row.names = FALSE)
 
-# remove auxiliary variables
+# remove objects
 rm(Unemp.Dur,
    Unemp.Dur.exhibit,
    Unemp.Dur.exhibit.age,

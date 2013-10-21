@@ -9,7 +9,7 @@ library(scales)
 
 Unemp.Data <- read.csv("Unemp_Duration_Cleaned.csv")
 
-## infer order of Race and Film factors from order in file
+## infer order of Country from order in file
 Unemp.Data <- within(Unemp.Data,
                      Country <- factor(as.character(Country), levels = unique(Country))
                      )
@@ -20,7 +20,7 @@ Unemp.Data <- within(Unemp.Data,
 
 
 
-############################ Country-wise plots
+############################ genderwise area plots for selected countries
 
 # function for drawing an areaplot for a country
 plot.GenUnemp.byYear.Country = function(data, target.country) {
@@ -49,7 +49,7 @@ plot.GenUnemp.byYear.Country = function(data, target.country) {
     return(plot)
 }
 
-# function for drawing an areaplot for every country in the dataset
+# function for drawing an areaplot for every country in the string vector "str.country"
 plot.GenUnemp.byYear = function(data, str.country = levels(data$Country)) {
     for (string in str.country) {
         plot.country = plot.GenUnemp.byYear.Country(data=data, target.country=string)
@@ -61,7 +61,7 @@ plot.GenUnemp.byYear = function(data, str.country = levels(data$Country)) {
     }    
 }
 
-# now, let's call the function for interesting countries
+# now, let's select some countries
 str.interesting.countries = c(
     "Canada",
     "Denmark",
@@ -74,13 +74,14 @@ str.interesting.countries = c(
     "United States"
     )
 
+# finally, let's call the function to draw plots
 plot.GenUnemp.byYear(Unemp.Data, str.country=str.interesting.countries)
 
 
 
-############################ Worldwide plots
+############################ Lineplot for overall unemployment rate
 
-# function for plotting line plots of aggregate unemployment rate
+# function for plotting line plots of overall unemployment rate
 plot.AggUnemp.byYear = function(data) {
     aggData = ddply(data, ~Country+Year,
                     summarize,
@@ -102,59 +103,25 @@ plot.AggUnemp.byYear = function(data) {
     dev.off()
 }
 
-# plot line plots for aggregation levels
-
-# sort out benchmark levels
+# to draw lineplot, let's collect aggregation levels first
 str.aggregations = c("European countries",
                      "EU 15 countries",
                      "EU 21 countries",
                      "G7 countries",
                      "OECD countries")
 
-# subset benchmark levels
+# subset the aggregatio levels from the original dataset
 Unemp.Data.Aggregation = droplevels(subset(Unemp.Data, 
                                            Country %in% str.aggregations))
 
-# let's call the function
+# finally, let's call the function to draw a lineplot
 plot.AggUnemp.byYear(Unemp.Data.Aggregation)
 
 
 
-############################ Junior level unemployment rates
+############################ Stripplot and violin plot for junior level unemployment rate
 
-# function for plotting long-term junior unemployment rate
-plot.AgeUnemp.byYear = function(data, title) {
-    
-    # set rectangle
-    plot.rect = data.frame(xmin = 2007.5, xmax = 2008.5, ymin = -Inf, ymax = Inf)
-    
-    data.subset = subset(data, LocalUnemp >= 0.165)
-    
-    ggplot(data=data) +
-        geom_point(aes(x=Year, y=LocalUnemp), position = position_jitter(width=0.1,height=0)) +
-        geom_text(data=data.subset, aes(x=Year, y=LocalUnemp, label=data.subset$Country), size=4, angle=20, hjust=1.1, vjust=0) +
-        geom_rect(data=plot.rect, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), alpha=0.3, fill="grey20", inherit.aes = FALSE) +
-        scale_x_continuous(breaks=seq(from=2000,to=2012,by=1)) +
-        scale_y_continuous(labels = percent) +
-        xlab("Year (gray colored area denotes Subprime Financial Crisis)") +
-        ylab("Age-wise unemployment rate") +
-        ggtitle(title)
-    ggsave("stripplot_JuniorUnempRate_jitter.png")
-    dev.off()
-    
-    ggplot(data=data) +
-        geom_violin(aes(x=factor(Year), y=LocalUnemp, fill=factor(data$Year == 2008))) +
-        scale_y_continuous(labels = percent) +
-        scale_fill_brewer(type = "seq", palette = "Greys") +
-        xlab("Year (gray colored one denotes the year of Subprime Financial Crisis)") +
-        ylab("Age-wise unemployment rate") + 
-        theme(legend.position = "none") +
-        ggtitle(title)
-    ggsave("stripplot_JuniorUnempRate_violin.png")
-    dev.off()
-}
-
-# exclude aggregation levels
+# let's sort out junior level long-term unemployment rates and exclude aggregation levels before plotting
 Unemp.Data.Junior = subset(Unemp.Data, Age == "15 to 24" & !(Country %in% str.aggregations) )
 Unemp.Data.Junior = droplevels(subset(Unemp.Data.Junior, 
                                       Duration == "> 6 month and < 1 year" | Duration == "1 year and over"))
@@ -164,17 +131,48 @@ Unemp.Data.Junior = ddply(Unemp.Data.Junior, ~Age+Country+Year,
                           LocalPop = sum(LocalPop)/length(levels(Duration)))
 Unemp.Data.Junior = within(Unemp.Data.Junior, LocalUnemp <- Unemployed/LocalPop )
 
-# call the last function!
+# now let's make the last two plots!
 str.title = "Ratio of long-term (> 6 months) unemployed people at age 15-24 \n to Labor Force (People available for work) at that age"
-plot.AgeUnemp.byYear(Unemp.Data.Junior, title=str.title)
 
+# set rectangle
+plot.rect = data.frame(xmin = 2007.5, xmax = 2008.5, ymin = -Inf, ymax = Inf)
+
+# choose countries to annotate
+Unemp.Data.Junior.Subset = subset(Unemp.Data.Junior, LocalUnemp >= 0.165)
+
+ggplot(data=Unemp.Data.Junior) +
+    geom_point(aes(x=Year, y=LocalUnemp), position = position_jitter(width=0.1,height=0)) +
+    geom_text(data=Unemp.Data.Junior.Subset, aes(x=Year, y=LocalUnemp, label=Unemp.Data.Junior.Subset$Country), size=4, angle=20, hjust=1.1, vjust=0) +
+    geom_rect(data=plot.rect, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), alpha=0.3, fill="grey20", inherit.aes = FALSE) +
+    scale_x_continuous(breaks=seq(from=2000,to=2012,by=1)) +
+    scale_y_continuous(labels = percent) +
+    xlab("Year (gray colored area denotes Subprime Financial Crisis)") +
+    ylab("Age-wise unemployment rate") +
+    ggtitle(str.title)
+ggsave("stripplot_JuniorUnempRate_jitter.png")
+dev.off()
+
+ggplot(data=Unemp.Data.Junior) +
+    geom_violin(aes(x=factor(Year), y=LocalUnemp, fill=factor(Unemp.Data.Junior$Year == 2008))) +
+    scale_y_continuous(labels = percent) +
+    scale_fill_brewer(type = "seq", palette = "Greys") +
+    xlab("Year (gray colored one denotes the year of Subprime Financial Crisis)") +
+    ylab("Age-wise unemployment rate") + 
+    theme(legend.position = "none") +
+    ggtitle(str.title)
+ggsave("stripplot_JuniorUnempRate_violin.png")
+dev.off()
+
+
+# remove objects
 rm(Unemp.Data,
    Unemp.Data.Aggregation,
    Unemp.Data.Junior,
+   Unemp.Data.Junior.Subset,
    str.aggregations,
    str.interesting.countries,
    str.title,
-   plot.AgeUnemp.byYear,
+   plot.rect,
    plot.AggUnemp.byYear,
    plot.GenUnemp.byYear,
    plot.GenUnemp.byYear.Country)
