@@ -1,11 +1,11 @@
 stat545a-2013-hw06_lee-woo
 ==========================
 
-stat545a homework 6 submitted by Wooyong Lee.
+stat545a homework 6 submitted by Wooyong Lee (83588129).
 
 **Contents:**
 - [Description of the raw data](https://github.com/folias/stat545a-2013-hw06_lee-woo#description-of-the-raw-data)
-- [Objective of the analysis and the work flow](https://github.com/folias/stat545a-2013-hw06_lee-woo#objective-of-the-analysis-and-the-work-flow)
+- [Objective of the study and the work flow](https://github.com/folias/stat545a-2013-hw06_lee-woo#objective-of-the-analysis-and-the-work-flow)
 - [Details of the study: overview](https://github.com/folias/stat545a-2013-hw06_lee-woo#details-of-the-study-overview)
 - [Details of the study: Step 1 - data cleaning and manipulation](https://github.com/folias/stat545a-2013-hw06_lee-woo#details-of-the-study-step-1---data-cleaning-and-manipulation)
 - [Details of the study: Step 2 - creation of plots](https://github.com/folias/stat545a-2013-hw06_lee-woo#details-of-the-study-step-2---creation-of-plots)
@@ -49,38 +49,38 @@ List of variables are as follows. Levels for categorical variables are in the pa
 
 - [`Unemp_Duration.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration.csv)
   - **Sex**: gender group (male, female or all persons)
-  - **Age**: standardised age groups (15-19, 15-24, 20-24, 25-54, 55+, total)
+  - **Age**: standardized age groups (15-19, 15-24, 20-24, 25-54, 55+, total)
   - **Frequency**: Frequency of observations (Monthly, Quarterly, Annual, etc. For the datasets I use, only annual data is available)
-  - **Country**: countries. (OECD member countries + some aggregate data such as data for OECD countries, G7 countries,
+  - **Country**: countries (OECD member countries + some aggregate data such as data for OECD countries, G7 countries,
     European countries, etc)
   - **Duration**: duration of unemployment.  ( < 1 month, > = 1 month and < 3 months, > = 3 months and < 6 months, > = 6 months and <1 year, 1 year and over, total declared)
-  - **Time**: Time of the record. (2000, 2001, ..., 2012)
+  - **Time**: Time of the record (2000, 2001, ..., 2012)
   - **Value**: the number of unemployed people (numeric, unit: thousands of persons)
 
 - [`Unemp_LaborForce.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_LaborForce.csv)
   - **Series**: type of the record (population, labor force, employment, unemployment)
   - **Sex**: gender group (male, female or all persons)
-  - **Age**: standardised age groups (15-24, 25-54, 55-64, 65+, total)
+  - **Age**: standardized age groups (15-24, 25-54, 55-64, 65+, total)
   - **Frequency**: Frequency of observations (Monthly, Quarterly, Annual, etc. For the datasets I use, only annual data is available)
-  - **Country**: countries. (OECD member countries + some aggregate data such as data for OECD countries, G7 countries,
+  - **Country**: countries (OECD member countries + some aggregate data such as data for OECD countries, G7 countries,
     European countries, etc)
-  - **Time**: Time of the record. (2000, 2001, ..., 2012)
+  - **Time**: Time of the record (2000, 2001, ..., 2012)
   - **Value**: the number of people that fits into the value of Series (numeric, unit: thousands of persons)
 
   
 
 
 
-## Objective of the analysis and the work flow
+## Objective of the study and the work flow
 
-**Objective:** Take a look at the impact of Subprime Mortgage Financial Crisis 
+**Objective:** Take a look at the impact of Subprime Mortgage Financial Crisis in 2008 
 ([Wikipedia page for Subprime Financial Crisis](http://en.wikipedia.org/wiki/Subprime_mortgage_crisis))
 on OECD countries in terms of the unemployment rate by visualizing the data.
 
 **Overall work flow:**
 
-1. perform a data cleaning and a data manipulation, and produce a well-organized data for the next step.
-2. provide plots based on the data prepared in the first step.
+1. perform data cleaning and data manipulation, and produce two descriptive plots and well-organized data for the next step.
+2. provide more plots based on the data prepared in the first step.
 
   
 
@@ -92,9 +92,9 @@ on OECD countries in terms of the unemployment rate by visualizing the data.
   [`Unemp_Duration.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration.csv)
   and
   [`Unemp_LaborForce.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_LaborForce.csv)
-- An R code that rules all the procedure: 
+- A R code file that rules all the procedures: 
   [`Makefile.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Makefile.R)
-  - R codes required to run [`Makefile.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Makefile.R):
+  - R code files required to run [`Makefile.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Makefile.R):
   [`00_removeOutputs.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/00_removeOutputs.R),
   [`01_filterReorder.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/01_filterReorder.R) and
   [`02_aggregatePlot.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/02_aggregatePlot.R)
@@ -104,23 +104,23 @@ on OECD countries in terms of the unemployment rate by visualizing the data.
   - [`barchart_2012_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AggregateUnempRate.png)
     : unemployement rate of countries in 2012.
   - [`barchart_2012_AgewiseUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AgewiseUnempRate.png)
-    : agewise unemployement rate of countries in 2012.
-    By agewise unemployment rate, I mean the ratio of the number of unemployed people in a age group to
-    labor force in the age group, that is, the number of people who are available for work in the age group.
+    : age-wise unemployement rate of countries in 2012.
+    By age-wise unemployment rate, I define it as the ratio of the number of unemployed people in a age group to
+    labor force in that age group, that is, the number of people who are available for work in that age group.
   - `areaplot_GenderwiseUnempRate_COUNTRY.png`
-    : an areaplot of genderwise unemployment rate over the years for COUNTRY, gridded by gender, 
+    : an areaplot of gender-wise unemployment rate over the years for COUNTRY, gridded by gender, 
     where COUNTRY is one of: Canada, Denmark, Estonia, Germany, Greece, Ireland, Spain, Turkey and United States.
-    By genderwise unemployment rate, I mean the ratio of the number of unemployed men/women to
+    By gender-wise unemployment rate, I define it as the ratio of the number of unemployed men/women to
     labor force of men/women, that is, the number of men/women who are available for work.
     
   - [`lineplot_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/lineplot_AggregateUnempRate.png)
-    : aggregate unemployment rate of countries in Europe, European Union 15, European Union 21, G7, OECD, respectively.
+    : aggregate unemployment rate of countries in Europe, of European Union 15, of European Union 21, in G7 and in OECD over the years.
   - [`stripplot_JuniorUnempRate_jitter.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_jitter.png)
     : jittered stripplot of long-term( > 6 month ) junior level unemployment rate (agewise unemployment rate for the age group 15-24)
-      of countries.
+      of countries over the years.
   - [`stripplot_JuniorUnempRate_violin.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_violin.png)
     : violin plot of long-term( > 6 month ) junior level unemployment rate (agewise unemployment rate for the age group 15-24)
-      of countries.
+      of countries over the years.
 
 
 
