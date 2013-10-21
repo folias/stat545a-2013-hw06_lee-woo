@@ -173,7 +173,7 @@ A brief explanation on the figures are as follows.
 
 [`02_aggregatePlot.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/02_aggregatePlot.R)
 performs Step 2.
-- The inputs of Step 1:
+- The input of Step 1:
   - [`Unemp_Duration_Cleaned.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration_Cleaned.csv)
 - The outputs of Step 1:
   - `areaplot_GenderwiseUnempRate_COUNTRY.png`
@@ -202,20 +202,20 @@ A brief explanation on the figures are as follows.
      these area plots for selected countries have some interesting features.
      
      - Canada's unemployment rate is almost not affected by Subprime shock; only its short-term unemployment increased temporarily.
-     - Estonia, Turkey and United States are gradually escaping from Subprime shock in terms of unemployment rate.
+     - Estonia, Turkey and United States are gradually escaping from Subprime shock recently in terms of unemployment rate.
      - Denmark is still not escaping from Subprime shock, but its unemployment rate stopped increasing in 2012.
      - Germany's unemployment rate has been decreasing for years even with Subprime shock.
-     - Greece, Ireland and Spain are affected by Subprime shock and their labor markets went
+     - In Greece, Ireland and Spain, the labor markets went
        really bad after Subprime shock. Especially, long-term unemployment rate for men is greatly increased in Ireland
        since Subprime shock.
 
   - [`lineplot_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/lineplot_AggregateUnempRate.png)
     
     From the plot, we can get the idea of how the world's unemployment rate has been changed since Subprime shock.
-    According to the plot, G7 and OECD countries are escaping from temporary Subprime shock overall,
-    but Subprime shock have a persistent effect on the unemployment rate of European countries.
-    Considering that "EU 15 countries" and "EU 21 countries" have similar trajectories to that of European countries,
-    we can guess that Subprime shock had a negative effect on the labor markets of
+    According to the plot, G7 and OECD countries are escaping from temporary Subprime shock overall.
+    However, for European countries, Subprime shock seems to have a persistent effect on the unemployment rate.
+    Also, considering that "EU 15 countries" and "EU 21 countries" have similar trajectories to European countries,
+    it may be the case that Subprime shock had a negative effect on the labor markets of
     not only small European countries but also major EU member countries. 
 
   - [`stripplot_JuniorUnempRate_jitter.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_jitter.png)
@@ -225,13 +225,13 @@ A brief explanation on the figures are as follows.
     From the plot, we can see how long-term ( > 6 month ) unemployment rate of junior level age group (age 15-24)
     has been changed over the years. I tried two kinds of plots - jittered strippplot and violin plot.
     
-    From the violin plot, we can see that the "center of gravity" lies around 3% throughout the years, but the upper-tail
+    From the violin plot, we can see that the "center of gravity" lies around 3% throughout the years while the upper-tail
     of the violin changes over the years. The tail had been shortened from 2003 to 2008, but then it has been stretching
     again since 2008.
     
     From the stripplot, we can see that which country suffers from the high long-term unemployment rate.
-    I annotated the country if the long-term unemployment rate is larger than or equal to 16.5%.
-    We can see that Poland was one of the countries with highest long-term unemployment rates until 2007
+    I annotated the country if the long-term junior level unemployment rate is larger than or equal to 16.5%.
+    We can see that Poland was one of the countries with highest long-term junior level unemployment rates until 2007
     while it does not appear after 2007.
     Also, we can see that Greece, Italy and Slovakia show high rates throught the years.
     Finally, Spain did not have high rate until 2009, but then it records the second-highest rate in 2012,
