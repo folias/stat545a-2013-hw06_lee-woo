@@ -116,10 +116,10 @@ on OECD countries in terms of the unemployment rate by visualizing the data.
   - [`lineplot_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/lineplot_AggregateUnempRate.png)
     : aggregate unemployment rate of countries in Europe, European Union 15, European Union 21, G7, OECD, respectively.
   - [`stripplot_JuniorUnempRate_jitter.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_jitter.png)
-    : jittered stripplot of junior level unemployment rate (agewise unemployment rate for the age group 15-24)
+    : jittered stripplot of long-term( > 6 month ) junior level unemployment rate (agewise unemployment rate for the age group 15-24)
       of countries.
   - [`stripplot_JuniorUnempRate_violin.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_violin.png)
-    : violin plot of junior level unemployment rate (agewise unemployment rate for the age group 15-24)
+    : violin plot of long-term( > 6 month ) junior level unemployment rate (agewise unemployment rate for the age group 15-24)
       of countries.
 
 
@@ -182,9 +182,15 @@ performs step 2.
   - [`stripplot_JuniorUnempRate_jitter.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_jitter.png)
   - [`stripplot_JuniorUnempRate_violin.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_violin.png)
 
-Step 2 can be divided into three small procedures.
+The code for Step 2,
+[`02_aggregatePlot.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/02_aggregatePlot.R),
+is quite straightforward and consists of three parts:
 
-1. Genderwise area plot for 
+1. Genderwise area plot for selected countries
+2. Lineplot for overall unemployment rate of European countries, 
+   EU 15 countries, EU 21 countries, G7 countries and OECD countries.
+3. Stripplot and violin plot for long-term( > 6 month ) junior level unemployment rate (age group 15-24)
+   of countries in the dataset.
 
 
 
