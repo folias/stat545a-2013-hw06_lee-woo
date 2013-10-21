@@ -5,6 +5,7 @@ stat545a homework 6 submitted by Wooyong Lee.
 
 **Contents:**
 - [Description of the raw data](https://github.com/folias/stat545a-2013-hw06_lee-woo/edit/master/README.md#description-of-the-raw-data)
+- [Objective of the analysis and the work flow](https://github.com/folias/stat545a-2013-hw06_lee-woo/edit/master/README.md#objective-of-the-analysis-and-the-work-flow)
 
 ## Description of the raw data
 
@@ -64,6 +65,31 @@ List of variables are as follows. Levels for categorical variables are in the pa
   - **Value**: the number of people that fits into the value of Series (numeric, unit: thousands of persons)
 
   
+
+
+
+## Objective of the analysis and the work flow
+
+**Objective:** Take a look at the impact of Subprime Mortgage Financial Crisis 
+([Wikipedia page for Subprime Financial Crisis](http://en.wikipedia.org/wiki/Subprime_mortgage_crisis))
+on OECD countries in terms of the unemployment rate by visualizing the data.
+
+**Overall work flow:**
+
+1. perform a data cleaning and a data manipulation, and produce a well-organized data for the next step.
+2. provide plots based on the data prepared in the first step.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
