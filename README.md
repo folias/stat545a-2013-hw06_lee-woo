@@ -48,7 +48,7 @@ Data manipulation can be done via OECD database tool, but all options are set as
 List of variables are as follows. Levels for categorical variables are in the parentheses.
 
 - [`Unemp_Duration.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration.csv)
-  - **Sex**: gender group (male, female or all persons)
+  - **Sex**: gender group (male, female, all persons)
   - **Age**: standardized age groups (15-19, 15-24, 20-24, 25-54, 55+, total)
   - **Frequency**: Frequency of observations (Monthly, Quarterly, Annual, etc. For the datasets I use, only annual data is available)
   - **Country**: countries (OECD member countries + some aggregate data such as data for OECD countries, G7 countries,
@@ -59,7 +59,7 @@ List of variables are as follows. Levels for categorical variables are in the pa
 
 - [`Unemp_LaborForce.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_LaborForce.csv)
   - **Series**: type of the record (population, labor force, employment, unemployment)
-  - **Sex**: gender group (male, female or all persons)
+  - **Sex**: gender group (male, female, all persons)
   - **Age**: standardized age groups (15-24, 25-54, 55-64, 65+, total)
   - **Frequency**: Frequency of observations (Monthly, Quarterly, Annual, etc. For the datasets I use, only annual data is available)
   - **Country**: countries (OECD member countries + some aggregate data such as data for OECD countries, G7 countries,
