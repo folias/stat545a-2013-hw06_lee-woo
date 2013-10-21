@@ -147,7 +147,7 @@ performs Step 1.
 
 
 For the procedure to produce [`Unemp_Duration_Cleaned.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration_Cleaned.csv),
-many things are done, I put the step-by-step explanations in the R code since I believe that
+many things are done, so I put the step-by-step explanations in the R code since I believe that
 this would be easier for the code reader to understand what is going on
 than writing all the things here and giving the code.
 See the comments in
