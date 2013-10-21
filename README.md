@@ -145,7 +145,7 @@ than writing all the things here and giving the code.
 See the comments in
 [`01_filterReorder.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/01_filterReorder.R).
 
-A brief explanation on the figures are as follows.
+A brief explanation and some observations for the figures are as follows.
 
 - [`barchart_2012_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AggregateUnempRate.png)
   
@@ -195,7 +195,8 @@ is quite straightforward and consists of three parts:
    of countries in the dataset.
 
 
-A brief explanation on the figures are as follows.
+A brief explanation and some observations for the figures are as follows.
+
   - `areaplot_GenderwiseUnempRate_COUNTRY.png`
     where COUNTRY is one of: Canada, Denmark, Estonia, Germany, Greece, Ireland, Spain, Turkey and United States.
 
