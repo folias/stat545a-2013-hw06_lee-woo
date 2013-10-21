@@ -146,6 +146,7 @@ See the comments in
 [`01_filterReorder.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/01_filterReorder.R).
 
 A brief explanation on the figures are as follows.
+
 - [`barchart_2012_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AggregateUnempRate.png)
   
   This is a descriptive plot for the dataset. This shows unemployment rate in 2012 for OECD countries.
@@ -182,6 +183,7 @@ performs step 2.
   - [`stripplot_JuniorUnempRate_jitter.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_jitter.png)
   - [`stripplot_JuniorUnempRate_violin.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_violin.png)
 
+
 The code for Step 2,
 [`02_aggregatePlot.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/02_aggregatePlot.R),
 is quite straightforward and consists of three parts:
@@ -193,10 +195,33 @@ is quite straightforward and consists of three parts:
    of countries in the dataset.
 
 
+A brief explanation on the figures are as follows.
+  - `areaplot_GenderwiseUnempRate_COUNTRY.png`
+    where COUNTRY is one of: Canada, Denmark, Estonia, Germany, Greece, Ireland, Spain, Turkey and United States.
 
+     these area plots for selected countries have some interesting features.
+     
+     - Canada's unemployment rate is almost not affected by Subprime shock.
+     - Denmark, Estonia, Turkey and United States are gradually escaping from Subprime shock in terms of unemployment rate.
+     - Germany's unemployment rate has been decreasing for years even with Subprime shock.
+     - Greece, Ireland and Spain are affected by Subprime shock and their labor markets went
+       really bad after Subprime shock. Especially, long-term unemployment rate is greatly increased in Ireland
+       since Subprime shock.
 
+  - [`lineplot_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/lineplot_AggregateUnempRate.png)
+    
+    From the plot, we can get the idea of how the world's unemployment rate has been changed since Subprime shock.
+    According to the plot, G7 and OECD countries are escaping from temporary Subprime shock overall,
+    but Subprime shock have a persistent effect on the unemployment rate of European countries.
+    Considering that "EU 15 countries" and "EU 21 countries" have similar trajectories to that of European countries,
+    we can guess that Subprime shock had a negative effect on the labor markets of
+    not only small European countries but also major EU member countries. 
 
+  - [`stripplot_JuniorUnempRate_jitter.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_jitter.png)
+    and
+    [`stripplot_JuniorUnempRate_violin.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_violin.png)
 
+    
 
 
 
