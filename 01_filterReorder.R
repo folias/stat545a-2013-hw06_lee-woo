@@ -164,7 +164,7 @@ Unemp.Dur.exhibit.age = ddply(Unemp.Dur.exhibit, ~ Age+Country+Year+Duration,
 Unemp.Dur.exhibit.age = within(Unemp.Dur.exhibit.age,
                                Country <- factor(Country, levels = factor(rev(levels(Country)))))
 
-# plot Unemployment rate for low unemployment rate countries
+# plot agewise Unemployment rate
 ggplot(data = Unemp.Dur.exhibit.age) + 
     geom_bar(aes(Country, weight=UnempPropLocal, fill=Duration)) +
     facet_grid(~Age) +
