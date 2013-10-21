@@ -4,11 +4,11 @@ stat545a-2013-hw06_lee-woo
 stat545a homework 6 submitted by Wooyong Lee.
 
 **Contents:**
-- [Description of the raw data](https://github.com/folias/stat545a-2013-hw06_lee-woo/edit/master/README.md#description-of-the-raw-data)
-- [Objective of the analysis and the work flow](https://github.com/folias/stat545a-2013-hw06_lee-woo/edit/master/README.md#objective-of-the-analysis-and-the-work-flow)
-- [Details of the study: overview](https://github.com/folias/stat545a-2013-hw06_lee-woo/edit/master/README.md#details-of-the-study-overview)
-- [Details of the study: Step 1 - data cleaning and manipulation](https://github.com/folias/stat545a-2013-hw06_lee-woo/edit/master/README.md#details-of-the-study-step-1---data-cleaning-and-manipulation)
-- [Details of the study: Step 2 - creation of plots](https://github.com/folias/stat545a-2013-hw06_lee-woo/edit/master/README.md#details-of-the-study-step-2---creation-of-plots)
+- [Description of the raw data](https://github.com/folias/stat545a-2013-hw06_lee-woo#description-of-the-raw-data)
+- [Objective of the analysis and the work flow](https://github.com/folias/stat545a-2013-hw06_lee-woo#objective-of-the-analysis-and-the-work-flow)
+- [Details of the study: overview](https://github.com/folias/stat545a-2013-hw06_lee-woo#details-of-the-study-overview)
+- [Details of the study: Step 1 - data cleaning and manipulation](https://github.com/folias/stat545a-2013-hw06_lee-woo#details-of-the-study-step-1---data-cleaning-and-manipulation)
+- [Details of the study: Step 2 - creation of plots](https://github.com/folias/stat545a-2013-hw06_lee-woo#details-of-the-study-step-2---creation-of-plots)
 
 ## Description of the raw data
 
