@@ -127,7 +127,7 @@ on OECD countries in terms of the unemployment rate by visualizing the data.
 ## Details of the study: Step 1 - data cleaning and manipulation
 
 [`01_filterReorder.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/01_filterReorder.R)
-performs step 1.
+performs Step 1.
 
 - The inputs of Step 1:
   - [`Unemp_Duration.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration.csv)
@@ -139,9 +139,9 @@ performs step 1.
 
 
 For the procedure to produce [`Unemp_Duration_Cleaned.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration_Cleaned.csv),
-I put the step-by-step explanations in the R code since I thought that
+I put the step-by-step explanations in the R code since I believe that
 this would be easier for the code reader to understand what is going on
-than writing all the things here and give the code.
+than writing all the things here and giving the code.
 See the comments in
 [`01_filterReorder.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/01_filterReorder.R).
 
@@ -150,16 +150,16 @@ A brief explanation on the figures are as follows.
 - [`barchart_2012_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AggregateUnempRate.png)
   
   This is a descriptive plot for the dataset. This shows unemployment rate in 2012 for OECD countries.
-  The two highest unemployment rates are from Greece and Spain, reflecting the fact that
+  The two highest unemployment rates are those of Greece and Spain, reflecting the fact that
   they have been suffering from financial crisis recently.
 
-  Ireland, Portugal and Slovakia also show high unemployment rates. Especially for Ireland, it will be shown that
+  Also, Ireland, Portugal and Slovakia show high unemployment rates. Especially for Ireland, it will be shown that
   the unemployment rate of Ireland increased dramatically after Subprime crisis in Step 2.
   
-  In Economics, short-term unemployment is sometimes not considered as an issue
+  Note that short-term unemployment is sometimes not considered as an issue
   since it can be interpreted as a job-seeking period until one finds a job.
   On the other hand, high long-term unemployment rate is a serious problem for a country.
-  In this perspective, Mexico is better than Japan in terms of unemployment issue
+  In this perspective, Mexico is better than Japan when it comes to unemployment problem
   even though unemployment rate for Mexico is a little larger than that of Japan.
 
 - [`barchart_2012_AgewiseUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AgewiseUnempRate.png)
@@ -172,7 +172,7 @@ A brief explanation on the figures are as follows.
 ## Details of the study: Step 2 - creation of plots
 
 [`02_aggregatePlot.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/02_aggregatePlot.R)
-performs step 2.
+performs Step 2.
 - The inputs of Step 1:
   - [`Unemp_Duration_Cleaned.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration_Cleaned.csv)
 - The outputs of Step 1:
