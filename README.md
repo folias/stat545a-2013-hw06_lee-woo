@@ -148,7 +148,7 @@ See the comments in
 A brief explanation on the figures are as follows.
 - [`barchart_2012_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AggregateUnempRate.png)
   
-  This is a descriptive plot for the dataset. This shows unemployment rate for OECD countries in 2012.
+  This is a descriptive plot for the dataset. This shows unemployment rate in 2012 for OECD countries.
   The two highest unemployment rates are from Greece and Spain, reflecting the fact that
   they have been suffering from financial crisis recently.
 
@@ -163,8 +163,8 @@ A brief explanation on the figures are as follows.
 
 - [`barchart_2012_AgewiseUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AgewiseUnempRate.png)
 
-  This is another descriptive plot for the dataset. This is a age-wise unemployment rate for OECD countries in 2012.
-  We can see that the labor market of Greece and Spain is extremely bad considering that
+  This is another descriptive plot for the dataset. This is a age-wise unemployment rate in 2012 for OECD countries.
+  We can see that the labor markets of Greece and Spain are extremely bad considering that
   about 25% of people in the age of 15-24 are seeking for job for more than one year.
 
 
