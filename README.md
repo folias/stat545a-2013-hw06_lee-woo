@@ -221,7 +221,20 @@ A brief explanation on the figures are as follows.
     and
     [`stripplot_JuniorUnempRate_violin.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_violin.png)
 
+    From the plot, we can see how long-term ( > 6 month ) unemployment rate of junior level age group (age 15-24)
+    has been changed over the years. I tried two kinds of plots - jittered strippplot and violin plot.
     
+    From the violin plot, we can see that the "center of gravity" lies around 3% throughout the years, but the upper-tail
+    of the violin changes over the years. The tail had been shortened from 2003 to 2008, but then it has been stretching
+    again since 2008.
+    
+    From the stripplot, we can see that which country suffers from the high long-term unemployment rate.
+    I annotated the country if the long-term unemployment rate is larger than or equal to 16.5%.
+    We can see that Poland was one of the countries with highest long-term unemployment rates until 2007
+    while it does not appear after 2007.
+    Also, we can see that Greece, Italy and Slovakia show high rates throught the years.
+    Finally, Spain did not have high rate until 2009, but then it records the second-highest rate in 2012,
+    reflecting its recent financial crisis.
 
 
 
