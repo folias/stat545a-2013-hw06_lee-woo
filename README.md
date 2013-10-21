@@ -82,19 +82,25 @@ on OECD countries in terms of the unemployment rate by visualizing the data.
 1. perform data cleaning and data manipulation, and produce two descriptive plots and well-organized data for the next step.
 2. provide more plots based on the data prepared in the first step.
 
-  
-
 
 
 ## Details of the study: overview
 
-- Input files:
+
+**To replicate the study:** 
+Copy all the inputs in a directory. Run 
+[`Makefile.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Makefile.R)
+via R console or Rstudio.
+
+
+- Inputs: 
+  - raw data files:
   [`Unemp_Duration.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration.csv)
   and
   [`Unemp_LaborForce.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_LaborForce.csv)
-- A R code file that rules all the procedures: 
+  - R code 1: A R code file that rules all the procedures: 
   [`Makefile.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Makefile.R)
-  - R code files required to run [`Makefile.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Makefile.R):
+  - R code 2: R code files required to run [`Makefile.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Makefile.R):
   [`00_removeOutputs.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/00_removeOutputs.R),
   [`01_filterReorder.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/01_filterReorder.R) and
   [`02_aggregatePlot.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/02_aggregatePlot.R)
@@ -121,6 +127,8 @@ on OECD countries in terms of the unemployment rate by visualizing the data.
   - [`stripplot_JuniorUnempRate_violin.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_violin.png)
     : violin plot of long-term( > 6 month ) junior level unemployment rate (agewise unemployment rate for the age group 15-24)
       of countries over the years.
+
+
 
 
 
