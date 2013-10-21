@@ -6,6 +6,9 @@ stat545a homework 6 submitted by Wooyong Lee.
 **Contents:**
 - [Description of the raw data](https://github.com/folias/stat545a-2013-hw06_lee-woo/edit/master/README.md#description-of-the-raw-data)
 - [Objective of the analysis and the work flow](https://github.com/folias/stat545a-2013-hw06_lee-woo/edit/master/README.md#objective-of-the-analysis-and-the-work-flow)
+- [Details of the study: overview](https://github.com/folias/stat545a-2013-hw06_lee-woo/edit/master/README.md#details-of-the-study-overview)
+- [Details of the study: Step 1 - data cleaning and manipulation](https://github.com/folias/stat545a-2013-hw06_lee-woo/edit/master/README.md#details-of-the-study-step-1---data-cleaning-and-manipulation)
+- [Details of the study: Step 2 - creation of plots](https://github.com/folias/stat545a-2013-hw06_lee-woo/edit/master/README.md#details-of-the-study-step-2---creation-of-plots)
 
 ## Description of the raw data
 
@@ -19,7 +22,7 @@ List of datasets and their sources:
 
  This dataset contains annual unemployment data for OECD member countries from 2000 to 2012.
  (I don't know why it contains data in 2011 and 2012, but there are data points.)
- For each country and for each year, the number of the unemployed people are recorded according to the duration of
+ For each country and for each year, the number of unemployed people are recorded according to the duration of
  unemployment. The data are segmentalized according to sex and standardized age groups.
  [Link to the dataset webpage] (http://dx.doi.org/10.1787/data-00320-en)
 
@@ -30,7 +33,7 @@ List of datasets and their sources:
  This dataset contains annual labor force(the number of people who are available for work) data for 
  OECD member countries from 2000 to 2012.
  (I don't know why it contains data in 2011 and 2012, but there are data points.)
- For each country and for each year, population, labor force, the number of the employed and the umemployed people are recorded. 
+ For each country and for each year, population, labor force, the number of employed and umemployed people are recorded. 
  The data are segmentalized according to sex and standardized age groups.
  [Link to the dataset webpage](http://dx.doi.org/10.1787/data-00309-en)
 
@@ -79,8 +82,59 @@ on OECD countries in terms of the unemployment rate by visualizing the data.
 1. perform a data cleaning and a data manipulation, and produce a well-organized data for the next step.
 2. provide plots based on the data prepared in the first step.
 
+  
 
 
+
+## Details of the study: overview
+
+- Input files:
+  [`Unemp_Duration.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration.csv)
+  and
+  [`Unemp_LaborForce.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_LaborForce.csv)
+- An R code that rules all the procedure: 
+  [`Makefile.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Makefile.R)
+  - R codes required to run [`Makefile.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Makefile.R):
+  [`00_removeOutputs.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/00_removeOutputs.R),
+  [`01_filterReorder.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/01_filterReorder.R) and
+  [`02_aggregatePlot.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/02_aggregatePlot.R)
+- Outputs:
+  - [`Unemp_Duration_Cleaned.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration_Cleaned.csv)
+    : a cleaned and manipulated dataset
+  - [`barchart_2012_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AggregateUnempRate.png)
+    : unemployement rate of countries in 2012.
+  - [`barchart_2012_AgewiseUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AgewiseUnempRate.png)
+    : agewise unemployement rate of countries in 2012.
+    By agewise unemployment rate, I mean the ratio of the number of unemployed people in a age group to
+    labor force in the age group, that is, the number of people who are available for work in the age group.
+  - `areaplot_GenderwiseUnempRate_COUNTRY.png`
+    : an areaplot of genderwise unemployment rate over the years for COUNTRY, gridded by gender, 
+    where COUNTRY is one of: Canada, Denmark, Estonia, Germany, Greece, Ireland, Spain, Turkey and United States.
+    By genderwise unemployment rate, I mean the ratio of the number of unemployed men/women to
+    labor force of men/women, that is, the number of men/women who are available for work.
+    
+  - [`lineplot_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/lineplot_AggregateUnempRate.png)
+    : aggregate unemployment rate of countries in Europe, European Union 15, European Union 21, G7, OECD, respectively
+  - [`stripplot_JuniorUnempRate_jitter.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_jitter.png)
+    : jittered stripplot of junior level unemployment rate (agewise unemployment rate for the age group 15-24)
+      of countries.
+  - [`stripplot_JuniorUnempRate_violin.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_violin.png)
+    : violin plot of junior level unemployment rate (agewise unemployment rate for the age group 15-24)
+      of countries.
+
+
+
+## Details of the study: Step 1 - data cleaning and manipulation
+
+This section explains what is done in [`01_filterReorder.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/01_filterReorder.R).
+
+
+
+
+
+## Details of the study: Step 2 - creation of plots
+
+This section explains what is done in [`02_aggregatePlot.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/02_aggregatePlot.R).
 
 
 
