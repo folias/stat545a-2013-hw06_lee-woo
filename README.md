@@ -201,7 +201,7 @@ A brief explanation on the figures are as follows.
 
      these area plots for selected countries have some interesting features.
      
-     - Canada's unemployment rate is almost not affected by Subprime shock.
+     - Canada's unemployment rate is almost not affected by Subprime shock; only its short-term unemployment increased temporarily.
      - Denmark, Estonia, Turkey and United States are gradually escaping from Subprime shock in terms of unemployment rate.
      - Germany's unemployment rate has been decreasing for years even with Subprime shock.
      - Greece, Ireland and Spain are affected by Subprime shock and their labor markets went
