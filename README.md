@@ -30,7 +30,8 @@ List of datasets and their sources:
  OECD (2010), "Labour Market Statistics: Labour force statistics by sex and age", 
  *OECD Employment and Labour Market Statistics (database)*. 
 
- This dataset contains annual labor force(the number of people who are available for work) data for 
+ This dataset contains annual labor force(the number of people who are available for work. 
+ [Wikipedia page for Labor force](http://en.wikipedia.org/wiki/Labor_force)) data for 
  OECD member countries from 2000 to 2012.
  (I don't know why it contains data in 2011 and 2012, but there are data points.)
  For each country and for each year, population, labor force, the number of employed and umemployed people are recorded. 
