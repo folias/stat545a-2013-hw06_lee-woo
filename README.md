@@ -202,10 +202,11 @@ A brief explanation on the figures are as follows.
      these area plots for selected countries have some interesting features.
      
      - Canada's unemployment rate is almost not affected by Subprime shock; only its short-term unemployment increased temporarily.
-     - Denmark, Estonia, Turkey and United States are gradually escaping from Subprime shock in terms of unemployment rate.
+     - Estonia, Turkey and United States are gradually escaping from Subprime shock in terms of unemployment rate.
+     - Denmark is still not escaping from Subprime shock, but its unemployment rate stopped increasing in 2012.
      - Germany's unemployment rate has been decreasing for years even with Subprime shock.
      - Greece, Ireland and Spain are affected by Subprime shock and their labor markets went
-       really bad after Subprime shock. Especially, long-term unemployment rate is greatly increased in Ireland
+       really bad after Subprime shock. Especially, long-term unemployment rate for men is greatly increased in Ireland
        since Subprime shock.
 
   - [`lineplot_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/lineplot_AggregateUnempRate.png)
