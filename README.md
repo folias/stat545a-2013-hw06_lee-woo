@@ -114,7 +114,7 @@ on OECD countries in terms of the unemployment rate by visualizing the data.
     labor force of men/women, that is, the number of men/women who are available for work.
     
   - [`lineplot_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/lineplot_AggregateUnempRate.png)
-    : aggregate unemployment rate of countries in Europe, European Union 15, European Union 21, G7, OECD, respectively
+    : aggregate unemployment rate of countries in Europe, European Union 15, European Union 21, G7, OECD, respectively.
   - [`stripplot_JuniorUnempRate_jitter.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_jitter.png)
     : jittered stripplot of junior level unemployment rate (agewise unemployment rate for the age group 15-24)
       of countries.
@@ -126,16 +126,65 @@ on OECD countries in terms of the unemployment rate by visualizing the data.
 
 ## Details of the study: Step 1 - data cleaning and manipulation
 
-This section explains what is done in [`01_filterReorder.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/01_filterReorder.R).
+[`01_filterReorder.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/01_filterReorder.R)
+performs step 1.
+
+- The inputs of Step 1:
+  - [`Unemp_Duration.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration.csv)
+  - [`Unemp_LaborForce.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_LaborForce.csv)
+- The outputs of Step 1:
+  - [`Unemp_Duration_Cleaned.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration_Cleaned.csv)
+  - [`barchart_2012_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AggregateUnempRate.png)
+  - [`barchart_2012_AgewiseUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AgewiseUnempRate.png)
 
 
+For the procedure to produce [`Unemp_Duration_Cleaned.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration_Cleaned.csv),
+I put the step-by-step explanations in the R code since I thought that
+this would be easier for the code reader to understand what is going on
+than writing all the things here and give the code.
+See the comments in
+[`01_filterReorder.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/01_filterReorder.R).
 
+A brief explanation on the figures are as follows.
+- [`barchart_2012_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AggregateUnempRate.png)
+  
+  This is a descriptive plot for the dataset. This shows unemployment rate for OECD countries in 2012.
+  The two highest unemployment rates are from Greece and Spain, reflecting the fact that
+  they have been suffering from financial crisis recently.
+
+  Ireland, Portugal and Slovakia also show high unemployment rates. Especially for Ireland, it will be shown that
+  the unemployment rate of Ireland increased dramatically after Subprime crisis in Step 2.
+  
+  In Economics, short-term unemployment is sometimes not considered as an issue
+  since it can be interpreted as a job-seeking period until one finds a job.
+  On the other hand, high long-term unemployment rate is a serious problem for a country.
+  In this perspective, Mexico is better than Japan in terms of unemployment issue
+  even though unemployment rate for Mexico is a little larger than that of Japan.
+
+- [`barchart_2012_AgewiseUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AgewiseUnempRate.png)
+
+  This is another descriptive plot for the dataset. This is a age-wise unemployment rate for OECD countries in 2012.
+  We can see that the labor market of Greece and Spain is extremely bad considering that
+  about 25% of people in the age of 15-24 are seeking for job for more than one year.
 
 
 ## Details of the study: Step 2 - creation of plots
 
-This section explains what is done in [`02_aggregatePlot.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/02_aggregatePlot.R).
+[`02_aggregatePlot.R`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/02_aggregatePlot.R)
+performs step 2.
+- The inputs of Step 1:
+  - [`Unemp_Duration_Cleaned.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration_Cleaned.csv)
+- The outputs of Step 1:
+  - `areaplot_GenderwiseUnempRate_COUNTRY.png`
+    where COUNTRY is one of: Canada, Denmark, Estonia, Germany, Greece, Ireland, Spain, Turkey and United States.
+    
+  - [`lineplot_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/lineplot_AggregateUnempRate.png)
+  - [`stripplot_JuniorUnempRate_jitter.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_jitter.png)
+  - [`stripplot_JuniorUnempRate_violin.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_violin.png)
 
+Step 2 can be divided into three small procedures.
+
+1. Genderwise area plot for 
 
 
 
