@@ -121,7 +121,6 @@ via R console or Rstudio.
     where COUNTRY is one of: Canada, Denmark, Estonia, Germany, Greece, Ireland, Spain, Turkey and United States.
     By gender-wise unemployment rate, I define it as the ratio of the number of unemployed men/women to
     labor force of men/women, that is, the number of men/women who are available for work.
-    ![](https://raw.github.com/folias/stat545a-2013-hw06_lee-woo/master/areaplot_GenderwiseUnempRate_COUNTRY.png)
   - [`lineplot_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/lineplot_AggregateUnempRate.png)
     : aggregate unemployment rate of countries in Europe, of European Union 15, of European Union 21, in G7 and in OECD over the years.
     ![](https://raw.github.com/folias/stat545a-2013-hw06_lee-woo/master/lineplot_AggregateUnempRate.png)
