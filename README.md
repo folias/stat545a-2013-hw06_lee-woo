@@ -109,6 +109,7 @@ via R console or Rstudio.
   - [`Unemp_Duration_Cleaned.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration_Cleaned.csv)
     : a cleaned and manipulated dataset
   - [`barchart_2012_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AggregateUnempRate.png)
+  ![](https://raw.github.com/folias/stat545a-2013-hw06_lee-woo/master/barchart_2012_AggregateUnempRate.png)
     : unemployement rate of countries in 2012.
   - [`barchart_2012_AgewiseUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AgewiseUnempRate.png)
     : age-wise unemployement rate of countries in 2012.
