@@ -109,26 +109,30 @@ via R console or Rstudio.
   - [`Unemp_Duration_Cleaned.csv`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/Unemp_Duration_Cleaned.csv)
     : a cleaned and manipulated dataset
   - [`barchart_2012_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AggregateUnempRate.png)
-  ![](https://raw.github.com/folias/stat545a-2013-hw06_lee-woo/master/barchart_2012_AggregateUnempRate.png)
-    : unemployement rate of countries in 2012.
+  : unemployement rate of countries in 2012.
+  ![](https://raw.github.com/folias/stat545a-2013-hw06_lee-woo/master/barchart_2012_AggregateUnempRate.png)   
   - [`barchart_2012_AgewiseUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/barchart_2012_AgewiseUnempRate.png)
     : age-wise unemployement rate of countries in 2012.
     By age-wise unemployment rate, I define it as the ratio of the number of unemployed people in a age group to
     labor force in that age group, that is, the number of people who are available for work in that age group.
+    ![](https://raw.github.com/folias/stat545a-2013-hw06_lee-woo/master/barchart_2012_AgewiseUnempRate.png)
   - `areaplot_GenderwiseUnempRate_COUNTRY.png`
     : an areaplot of gender-wise unemployment rate over the years for COUNTRY, gridded by gender, 
     where COUNTRY is one of: Canada, Denmark, Estonia, Germany, Greece, Ireland, Spain, Turkey and United States.
     By gender-wise unemployment rate, I define it as the ratio of the number of unemployed men/women to
     labor force of men/women, that is, the number of men/women who are available for work.
-    
+    ![](https://raw.github.com/folias/stat545a-2013-hw06_lee-woo/master/areaplot_GenderwiseUnempRate_COUNTRY.png)
   - [`lineplot_AggregateUnempRate.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/lineplot_AggregateUnempRate.png)
     : aggregate unemployment rate of countries in Europe, of European Union 15, of European Union 21, in G7 and in OECD over the years.
+    ![](https://raw.github.com/folias/stat545a-2013-hw06_lee-woo/master/lineplot_AggregateUnempRate.png)
   - [`stripplot_JuniorUnempRate_jitter.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_jitter.png)
     : jittered stripplot of long-term( > 6 month ) junior level unemployment rate (agewise unemployment rate for the age group 15-24)
       of countries over the years.
+      ![](https://raw.github.com/folias/stat545a-2013-hw06_lee-woo/master/stripplot_JuniorUnempRate_jitter.png)
   - [`stripplot_JuniorUnempRate_violin.png`](https://github.com/folias/stat545a-2013-hw06_lee-woo/blob/master/stripplot_JuniorUnempRate_violin.png)
     : violin plot of long-term( > 6 month ) junior level unemployment rate (agewise unemployment rate for the age group 15-24)
       of countries over the years.
+      ![](https://raw.github.com/folias/stat545a-2013-hw06_lee-woo/master/stripplot_JuniorUnempRate_violin.png)
 
 
 
